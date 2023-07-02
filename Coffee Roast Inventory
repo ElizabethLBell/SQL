@@ -1,0 +1,39 @@
+CREATE TABLE Inventory (id INTEGER PRIMARY KEY, name TEXT, roast_type TEXT, seasonal TEXT, amount_instock INTEGER, price INTEGER);
+SELECT * FROM Inventory;
+
+INSERT INTO Inventory VALUES (1, "Brazil", "medium", "no", 22, 16);
+SELECT * FROM Inventory;
+
+INSERT INTO Inventory VALUES (2, "Honduras", "light", "yes", 12, 18);
+
+INSERT INTO Inventory VALUES (3, "Sumatra", "dark", "no", 35, 16);
+
+INSERT INTO Inventory VALUES (4, "Papua New Guinea", "medium", "no", 18, 16);
+
+INSERT INTO Inventory VALUES (5, "Decaf Brazil", "medium", "no", 10, 17);
+SELECT * FROM Inventory;
+
+INSERT INTO Inventory VALUES (6, "Ethiopia", "light", "no", 19, 18);
+
+INSERT INTO Inventory VALUES (7, "Christmas Roast", "dark", "yes", 6, 20);
+
+INSERT INTO Inventory VALUES (8, "Autumn Roast", "medium", "yes", 3, 20);
+
+INSERT INTO Inventory VALUES (9, "Spring Roast", "light", "yes", 5, 20);
+
+INSERT INTO Inventory VALUES (10, "Cold Brew Roast", "dark", "no", 30, 19);
+
+INSERT INTO Inventory VALUES (11, "Guatemala", "medium", "no", 27, 16);
+
+INSERT INTO Inventory VALUES (12, "Colombia", "dark", "no", 17, 16);
+
+INSERT INTO Inventory VALUES (13, "El Salvador", "light", "yes", 6, 18);
+
+INSERT INTO Inventory VALUES (14, "Rwanda", "light", "yes", 2, 20);
+
+INSERT INTO Inventory VALUES (15, "Espresso Special", "dark", "no", 33, 20);
+SELECT * FROM Inventory;
+
+SELECT * FROM Inventory ORDER BY amount_instock desc;
+
+SELECT roast_type, SUM(amount_instock) FROM Inventory GROUP BY roast_type;
