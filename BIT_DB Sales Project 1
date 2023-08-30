@@ -98,6 +98,45 @@ WHERE location like '%Los Angeles%'
 GROUP BY Product
 
 
+SELECT location, count(orderID)
+FROM BIT_DB.JanSales
+WHERE location like '%NY%'
+AND length(orderid) = 6 
+AND orderid <> 'Order ID'
+GROUP BY location
+HAVING count(orderID)>2
+
+SELECT * FROM BIT_DB.FebSales LIMIT 10
+
+SELECT Product, SUM(Quantity)
+FROM BIT_DB.FebSales
+WHERE Product like '%headphone%'
+AND length(orderid) = 6 
+AND orderid <> 'Order ID'
+GROUP BY Product
+
+SELECT * FROM BIT_DB.FebSales LIMIT 10
+
+SELECT * FROM BIT_DB.customers LIMIT 10
+
+SELECT AVG(quantity*price)
+FROM BIT_DB.FebSales
+LEFT JOIN BIT_DB.customers
+ON FebSales.orderID = customers.order_id
+AND length(orderID) = 6
+AND orderID <> 'Order ID'
+
+SELECT * FROM BIT_DB.JanSales LIMIT 5
+
+SELECT Product, SUM(Quantity*Price)
+FROM BIT_DB.JanSales
+GROUP BY Product
+ORDER BY SUM(quantity*price) DESC LIMIT 1
+
+SELECT Product, SUM(Quantity*Price) AS Revenue
+FROM BIT_DB.JanSales
+GROUP BY Product
+ORDER BY Revenue DESC LIMIT 1
 
 
 
